@@ -12,14 +12,13 @@
  */
 class SerialManager {
 public:
-    SerialManager(EventManager* manager, RawSerial* serial);
+    SerialManager(RawSerial* serial);
     SerialPacket* alloc();
     void push(SerialPacket* packet);
 
 private:
     void onSerial(SerialPacket* packet);
 
-    EventManager*   _eventManager;
     RawSerial*      _serial;
     MailManager<SerialPacket, SERIAL_MAILBOX_SIZE>  _mailManager;
 };

@@ -1,8 +1,7 @@
 #include "SerialManager.h"
 #include "SerialTX.h"
 
-SerialManager::SerialManager(EventManager* manager, RawSerial* serial) :
-        _eventManager(manager),
+SerialManager::SerialManager(RawSerial* serial) :
         _serial(serial)
 {
     _mailManager.start(callback(this, &SerialManager::onSerial));
